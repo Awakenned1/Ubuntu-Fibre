@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+}
+
+@theme {
+  --color-ubuntu-blue: #0A2E63;
+  --color-ubuntu-sec: #123F85;
+  --color-ubuntu-yellow: #F5B400;
+  --color-ubuntu-green: #009B4D;
+  --color-ubuntu-red: #E31E24;
+  --color-light-gray: #F8FAFC;
+  --color-dark-text: #1F2937;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1F2937;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .text-gradient-yellow {
+    background: linear-gradient(135deg, #F5B400 0%, #ffd04d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #020d1f 0%, #0A2E63 45%, #0e3878 70%, #0A2E63 100%);
+  }
+
+  .network-dots {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .font-poppins {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  .font-inter {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0A2E63;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #123F85;
+}
