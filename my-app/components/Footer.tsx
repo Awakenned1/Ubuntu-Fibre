@@ -76,7 +76,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-ubuntu-blue text-white relative overflow-hidden">
+    <footer className="bg-white text-slate-900 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 network-dots opacity-20" />
 
@@ -95,7 +95,7 @@ export default function Footer() {
                 className="h-14 w-auto"
               />
             </div>
-            <p className="text-blue-200 text-sm leading-relaxed font-inter mb-6">
+            <p className="text-slate-600 text-sm leading-relaxed font-inter mb-6">
               Connecting homes and businesses across South Africa with
               enterprise-grade fibre infrastructure, reliable support, and
               competitive pricing.
@@ -103,14 +103,14 @@ export default function Footer() {
             <div className="space-y-2">
               <a
                 href="tel:+27844975834"
-                className="flex items-center gap-2.5 text-blue-200 hover:text-ubuntu-yellow transition-colors text-sm font-inter"
+                className="flex items-center gap-2.5 text-slate-700 hover:text-ubuntu-blue transition-colors text-sm font-inter"
               >
                 <Phone size={14} className="text-ubuntu-yellow" />
                 +27 84 497 5834
               </a>
               <a
                 href="mailto:info@ubuntufibre.co.za"
-                className="flex items-center gap-2.5 text-blue-200 hover:text-ubuntu-yellow transition-colors text-sm font-inter"
+                className="flex items-center gap-2.5 text-slate-700 hover:text-ubuntu-blue transition-colors text-sm font-inter"
               >
                 <Mail size={14} className="text-ubuntu-yellow" />
                 info@ubuntufibre.co.za
@@ -128,7 +128,7 @@ export default function Footer() {
                 <li key={link}>
                   <button
                     onClick={() => handleNav("#services")}
-                    className="text-blue-200 hover:text-ubuntu-yellow transition-colors text-sm font-inter hover:translate-x-1 inline-block transition-transform"
+                    className="text-slate-700 hover:text-ubuntu-blue transition-colors text-sm font-inter hover:translate-x-1 inline-block transition-transform"
                   >
                     {link}
                   </button>

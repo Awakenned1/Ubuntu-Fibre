@@ -2,260 +2,131 @@
 
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { ArrowRight, ChevronRight, Wifi, Shield, Headphones } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const stats = [
-  { icon: Shield, value: "99.9%", label: "Network Uptime", delay: 0, color: "#F5B400" },
-  { icon: Wifi, value: "5,000+", label: "Connected Users", delay: 1.2, color: "#009B4D" },
-  { icon: Headphones, value: "24/7", label: "Support", delay: 2.4, color: "#E31E24" },
-];
-
 const partners = [
-  { name: "Openserve", logo: "/openserve.png", darkBg: false },
-  { name: "Huawei", logo: "/huawei.png", darkBg: false },
-  { name: "Vodafone", logo: "/vodafone.png", darkBg: true },
+  { name: "Openserve", logo: "/openserve.png" },
+  { name: "Huawei", logo: "/huawei.png" },
+  { name: "Vodafone", logo: "/vodafone.png" },
 ];
 
-const containerVariants: Variants = {
+const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.18 } },
 };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+const item: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center hero-gradient overflow-hidden pt-16 sm:pt-20"
-    >
-      {/* Network dot pattern overlay */}
-      <div className="absolute inset-0 network-dots opacity-60" />
+    <section id="home" className="relative flex flex-col overflow-hidden">
 
-      {/* Decorative light streaks */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute top-1/4 left-1/4 w-px h-64 rotate-45 opacity-20"
-          style={{ background: "linear-gradient(to bottom, transparent, #F5B400, transparent)" }}
-        />
-        <div
-          className="absolute top-1/3 right-1/3 w-px h-48 -rotate-45 opacity-15"
-          style={{ background: "linear-gradient(to bottom, transparent, #009B4D, transparent)" }}
-        />
-        <div
-          className="absolute bottom-0 -left-24 w-80 h-80 rounded-full opacity-15"
-          style={{ background: "radial-gradient(circle, #F5B400 0%, transparent 70%)" }}
-        />
-        <div
-          className="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, #123F85 0%, transparent 70%)" }}
-        />
-      </div>
+      {/* ── FULL VIEWPORT: hero + partners together ── */}
+      <div className="relative min-h-screen flex flex-col">
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* Background with dark transparency overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero-bg.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07153D]/75 via-[#07153D]/30 to-transparent" />
+        </div>
 
-          {/* ── Left Column ── */}
+        {/* Hero content — takes remaining space above partners */}
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-10">
           <motion.div
-            variants={containerVariants}
+            variants={container}
             initial="hidden"
             animate="show"
-            className="text-white"
+            className="flex flex-col items-center text-center"
           >
-            {/* Heading */}
+
+            {/* Logo icon + brand name — frosted pill for visibility */}
+            <motion.div variants={item} className="mb-4">
+              <div className="inline-flex items-center gap-4 bg-white/60 backdrop-blur-md rounded-2xl px-6 py-4 shadow-sm">
+                <Image
+                  src="/ubuntulogo.png"
+                  alt="Ubuntu Fibre icon"
+                  width={70}
+                  height={70}
+                  priority
+                  className="w-14 h-14 sm:w-16 sm:h-16"
+                />
+                <div className="text-left">
+                  <div className="text-5xl sm:text-6xl font-black leading-none tracking-tight">
+                    <span style={{ color: "#2D3D9D" }}>U</span>
+                    <span style={{ color: "#F0B11D" }}>B</span>
+                    <span style={{ color: "#111111" }}>U</span>
+                    <span style={{ color: "#22A652" }}>N</span>
+                    <span style={{ color: "#F1333A" }}>T</span>
+                    <span style={{ color: "#2D3D9D" }}>U</span>
+                  </div>
+                  <p className="uppercase tracking-[0.28em] text-[10px] text-slate-600 font-bold mt-1">
+                    Fibre Telecommunications
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Divider */}
+            <motion.div
+              variants={item}
+              className="w-14 h-[3px] rounded-full bg-gradient-to-r from-[#2D3D9D] via-[#22A652] to-[#F1333A] mb-6"
+            />
+
+            {/* Slogan — strong shadow for legibility over vivid bg */}
             <motion.h1
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] mb-5 sm:mb-7 font-poppins tracking-tight"
+              variants={item}
+              className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#07153D] leading-snug mb-8 whitespace-nowrap [text-shadow:0_1px_12px_rgba(255,255,255,0.9),0_2px_4px_rgba(255,255,255,0.8)]"
             >
-              Working{" "}
-              <span className="text-ubuntu-yellow">Together</span>
-              <br />
-              to Get{" "}
-              <span
-                className="relative inline-block"
-                style={{
-                  background: "linear-gradient(90deg, #F5B400 0%, #fff 80%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Connected
-              </span>
+              Working Together{" "}
+              <span className="text-[#1565FF]">To Get Connected</span>
             </motion.h1>
 
-            {/* Subheading */}
-            <motion.p
-              variants={itemVariants}
-              className="text-sm sm:text-base lg:text-lg text-blue-100 leading-relaxed mb-7 sm:mb-9 max-w-lg font-inter"
-            >
-              Bridging the digital divide through fibre connectivity, ISP growth solutions,
-              and enterprise networking across South Africa.
-            </motion.p>
-
-            {/* Buttons — stack on mobile, side-by-side on sm+ */}
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
-              <motion.button
-                onClick={() => {
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-ubuntu-yellow text-ubuntu-blue font-bold rounded-xl hover:bg-yellow-400 transition-all duration-200 shadow-lg shadow-ubuntu-yellow/30 font-poppins text-sm"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
+            {/* CTA */}
+            <motion.div variants={item}>
+              <button
+                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="group flex items-center gap-3 px-9 py-4 rounded-full bg-[#E1262C] hover:bg-[#C91E24] text-white text-base font-bold shadow-lg shadow-red-400/25 transition-all hover:scale-105"
               >
-                Get Connected
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-              <motion.button
-                onClick={() => {
-                  document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/25 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-200 font-poppins text-sm"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Our Services
-                <ChevronRight size={16} className="text-ubuntu-yellow group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+                Get Connected Today
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
             </motion.div>
 
-            {/* Mobile-only stats strip — hidden on sm and above */}
-            <motion.div variants={itemVariants} className="sm:hidden grid grid-cols-3 gap-2 mb-7">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="glass-card rounded-xl p-3 text-center"
-                >
-                  <div className="text-white font-black text-base leading-tight font-poppins">
-                    {stat.value}
-                  </div>
-                  <div className="text-blue-200 text-xs font-inter mt-0.5">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Partner logos */}
-            <motion.div variants={itemVariants}>
-              <p className="text-blue-300 text-xs font-medium uppercase tracking-wider mb-3 font-inter">
-                Trusted Technology Partners
-              </p>
-              <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                {partners.map((p) => (
-                  <div
-                    key={p.name}
-                    className={`flex items-center justify-center rounded-xl px-2 sm:px-3 py-1.5 sm:py-2 border transition-all duration-200 hover:scale-105 ${
-                      p.darkBg
-                        ? "bg-ubuntu-red border-ubuntu-red/60"
-                        : "bg-white border-white/80"
-                    }`}
-                    title={p.name}
-                  >
-                    <Image
-                      src={p.logo}
-                      alt={p.name}
-                      width={88}
-                      height={36}
-                      className="object-contain h-6 sm:h-8 w-auto"
-                    />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
+        </div>
 
-          {/* ── Right Column — Logo ── */}
-          <div className="relative flex justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.88 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative w-full max-w-[260px] sm:max-w-md lg:max-w-lg flex items-center justify-center"
-            >
-              {/* Glow backdrop */}
-              <div
-                className="absolute inset-0 rounded-full opacity-20 blur-3xl"
-                style={{ background: "radial-gradient(circle, #F5B400 0%, transparent 70%)" }}
-              />
-
-              {/* Logo card */}
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-10 sm:p-14 shadow-2xl">
+        {/* ── PARTNERS — solid white strip ── */}
+        <div className="relative z-10 w-full bg-white py-8 px-6">
+          <p className="text-center uppercase tracking-[6px] text-slate-400 text-xs font-bold mb-6">
+            Trusted Technology Partners
+          </p>
+          <div className="max-w-4xl mx-auto flex justify-center items-center gap-14 flex-wrap">
+            {partners.map((p) => (
+              <div key={p.name} className="opacity-70 hover:opacity-100 transition-opacity">
                 <Image
-                  src="/logo.png"
-                  alt="Ubuntu Fibre Telecommunications"
-                  width={400}
-                  height={400}
-                  className="h-28 sm:h-40 lg:h-52 w-auto"
-                  priority
+                  src={p.logo}
+                  alt={p.name}
+                  width={200}
+                  height={72}
+                  className="object-contain h-16 w-auto"
                 />
               </div>
-
-              {/* Floating stat cards — sm and above only */}
-              <div className="hidden sm:block">
-                {stats.map((stat, i) => (
-                  <FloatingStatCard key={stat.label} stat={stat} index={i} />
-                ))}
-              </div>
-            </motion.div>
+            ))}
           </div>
-
         </div>
+
       </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 60L60 50C120 40 240 20 360 15C480 10 600 20 720 25C840 30 960 30 1080 25C1200 20 1320 10 1380 5L1440 0V60H0Z"
-            fill="#ffffff"
-          />
-        </svg>
-      </div>
     </section>
-  );
-}
-
-
-function FloatingStatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
-  const positions = [
-    "absolute -left-4 top-1/4 sm:-left-10",
-    "absolute -right-4 top-1/3 sm:-right-10",
-    "absolute left-1/2 -translate-x-1/2 -bottom-4",
-  ];
-
-  return (
-    <motion.div
-      className={`${positions[index]} glass-card rounded-2xl px-3 py-2.5 sm:px-4 sm:py-3 min-w-[110px] sm:min-w-[130px] text-center shadow-xl`}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: [0, -10, 0],
-      }}
-      transition={{
-        opacity: { delay: 0.6 + index * 0.2, duration: 0.5 },
-        scale: { delay: 0.6 + index * 0.2, duration: 0.5 },
-        y: {
-          delay: stat.delay,
-          duration: 3 + index * 0.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    >
-      <div
-        className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mx-auto mb-1.5 sm:mb-2"
-        style={{ backgroundColor: `${stat.color}22`, border: `1px solid ${stat.color}44` }}
-      >
-        <stat.icon size={14} style={{ color: stat.color }} />
-      </div>
-      <div className="text-white font-black text-base sm:text-lg leading-tight font-poppins">
-        {stat.value}
-      </div>
-      <div className="text-blue-200 text-xs font-medium font-inter">{stat.label}</div>
-    </motion.div>
   );
 }

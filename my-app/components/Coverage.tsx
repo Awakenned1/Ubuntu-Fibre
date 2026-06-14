@@ -175,21 +175,38 @@ export default function Coverage() {
 }
 
 function SouthAfricaMap() {
+  const provinces = [
+    { name: "Limpopo", x: 270, y: 105 },
+    { name: "Mpumalanga", x: 340, y: 155 },
+    { name: "North West", x: 190, y: 210 },
+    { name: "Gauteng", x: 270, y: 175 },
+    { name: "Free State", x: 245, y: 310 },
+    { name: "KwaZulu-Natal", x: 375, y: 275 },
+    { name: "Eastern Cape", x: 315, y: 365 },
+    { name: "Northern Cape", x: 145, y: 320 },
+    { name: "Western Cape", x: 170, y: 390 },
+  ];
+
+  const cities = [
+    { name: "Johannesburg", x: 265, y: 170, color: "#F5B400" },
+    { name: "Pretoria", x: 275, y: 160, color: "#F5B400" },
+    { name: "Durban", x: 378, y: 275, color: "#E31E24" },
+    { name: "Cape Town", x: 170, y: 400, color: "#009B4D" },
+    { name: "Bloemfontein", x: 245, y: 305, color: "#006EE6" },
+    { name: "Port Elizabeth", x: 315, y: 355, color: "#E31E24" },
+  ];
+
   return (
     <div className="relative w-full max-w-sm lg:max-w-md">
       <svg
-        viewBox="0 0 450 420"
+        viewBox="0 0 500 600"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full drop-shadow-2xl"
       >
         <defs>
-          <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#F5B400" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#0A2E63" stopOpacity="0" />
-          </radialGradient>
           <filter id="nodeGlow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feGaussianBlur stdDeviation="2" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -197,51 +214,172 @@ function SouthAfricaMap() {
           </filter>
         </defs>
 
-        <ellipse cx="225" cy="210" rx="200" ry="180" fill="url(#mapGlow)" />
+        {/* PROVINCE COLORED REGIONS */}
 
+        {/* Western Cape - Yellow */}
         <path
-          d="M 145 30 L 175 20 L 215 18 L 265 22 L 310 35 L 355 58 L 385 88 L 400 125 L 402 158 L 392 190 L 372 218 L 350 242 L 328 265 L 308 282 L 288 298 L 268 315 L 250 330 L 235 345 L 222 358 L 210 365 L 198 362 L 185 350 L 170 332 L 152 310 L 130 285 L 108 260 L 88 238 L 68 215 L 50 190 L 38 162 L 34 132 L 40 102 L 52 78 L 72 58 L 98 42 L 125 32 Z"
-          fill="rgba(18,63,133,0.4)"
-          stroke="rgba(245,180,0,0.5)"
-          strokeWidth="2"
+          d="M 140 380 L 160 375 L 190 390 L 180 420 L 150 425 Z"
+          fill="#F5D547"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.8"
+        />
+
+        {/* Northern Cape - Orange */}
+        <path
+          d="M 115 300 L 160 280 L 190 290 L 230 320 L 220 360 L 150 380 L 130 350 Z"
+          fill="#FF9500"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.75"
+        />
+
+        {/* Free State - Purple */}
+        <path
+          d="M 220 280 L 270 260 L 300 280 L 300 340 L 260 350 L 230 320 Z"
+          fill="#D084D6"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.8"
+        />
+
+        {/* Eastern Cape - Light Blue */}
+        <path
+          d="M 300 340 L 340 320 L 360 360 L 330 395 L 290 390 Z"
+          fill="#A8D8FF"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.75"
+        />
+
+        {/* KwaZulu-Natal - Green */}
+        <path
+          d="M 340 200 L 385 195 L 395 280 L 380 320 L 340 300 Z"
+          fill="#7FD856"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.8"
+        />
+
+        {/* Mpumalanga - Dark Blue */}
+        <path
+          d="M 320 130 L 370 120 L 385 165 L 360 200 L 330 180 Z"
+          fill="#1E3A8A"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.8"
+        />
+
+        {/* Limpopo - Pink */}
+        <path
+          d="M 240 95 L 300 85 L 330 120 L 320 150 L 270 145 Z"
+          fill="#E87FA8"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.8"
+        />
+
+        {/* Gauteng - Red */}
+        <path
+          d="M 250 155 L 290 145 L 320 170 L 310 200 L 270 205 L 260 180 Z"
+          fill="#E31E24"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.85"
+        />
+
+        {/* North West - Lime Green */}
+        <path
+          d="M 160 185 L 220 165 L 250 185 L 240 240 L 180 250 L 150 220 Z"
+          fill="#ABFF1A"
+          stroke="rgba(245,180,0,0.8)"
+          strokeWidth="1.5"
+          opacity="0.8"
+        />
+
+        {/* South Africa Border */}
+        <path
+          d="M 140 180 L 180 95 L 240 85 L 300 80 L 340 95 L 380 135 L 400 180 L 405 240 L 400 300 L 380 350 L 360 380 L 330 400 L 280 410 L 230 415 L 180 420 L 150 410 L 130 385 L 115 350 L 110 300 L 115 250 Z"
+          fill="none"
+          stroke="rgba(245,180,0,1)"
+          strokeWidth="2.5"
           strokeLinejoin="round"
         />
-        <path
-          d="M 248 252 L 260 245 L 272 252 L 268 264 L 252 266 Z"
-          fill="rgba(10,46,99,0.8)"
-          stroke="rgba(245,180,0,0.4)"
-          strokeWidth="1"
-        />
 
+        {/* PROVINCE LABELS */}
+        {provinces.map((prov) => (
+          <g key={prov.name}>
+            <rect
+              x={prov.x - 45}
+              y={prov.y - 10}
+              width="90"
+              height="18"
+              fill="rgba(0,0,0,0.4)"
+              rx="4"
+            />
+            <text
+              x={prov.x}
+              y={prov.y}
+              fill="white"
+              fontSize="10"
+              fontFamily="system-ui"
+              fontWeight="700"
+              textAnchor="middle"
+              dominantBaseline="middle"
+            >
+              {prov.name}
+            </text>
+          </g>
+        ))}
+
+        {/* MAJOR CITIES */}
         <g filter="url(#nodeGlow)">
-          <circle cx="240" cy="180" r="10" fill="#F5B400" opacity="0.9" />
-          <circle cx="240" cy="180" r="20" fill="rgba(245,180,0,0.2)" />
-          <text x="255" y="175" fill="white" fontSize="9" fontFamily="system-ui" fontWeight="600">Johannesburg</text>
-
-          <circle cx="128" cy="340" r="8" fill="#009B4D" opacity="0.9" />
-          <circle cx="128" cy="340" r="16" fill="rgba(0,155,77,0.2)" />
-          <text x="140" y="345" fill="white" fontSize="9" fontFamily="system-ui" fontWeight="600">Cape Town</text>
-
-          <circle cx="308" cy="248" r="7" fill="#E31E24" opacity="0.9" />
-          <circle cx="308" cy="248" r="14" fill="rgba(227,30,36,0.2)" />
-          <text x="318" y="245" fill="white" fontSize="9" fontFamily="system-ui" fontWeight="600">Durban</text>
-
-          <circle cx="235" cy="158" r="6" fill="#F5B400" opacity="0.8" />
-          <circle cx="225" cy="318" r="6" fill="#009B4D" opacity="0.8" />
-          <circle cx="210" cy="242" r="6" fill="#123F85" opacity="0.8" />
+          {cities.map((city) => (
+            <g key={city.name}>
+              <circle cx={city.x} cy={city.y} r="5" fill={city.color} opacity="0.95" />
+              <circle cx={city.x} cy={city.y} r="11" fill={city.color} opacity="0.15" />
+              <text
+                x={city.x + 10}
+                y={city.y - 6}
+                fill="white"
+                fontSize="6"
+                fontFamily="system-ui"
+                fontWeight="700"
+              >
+                {city.name}
+              </text>
+            </g>
+          ))}
         </g>
 
-        <line x1="240" y1="180" x2="235" y2="158" stroke="rgba(245,180,0,0.3)" strokeWidth="1" strokeDasharray="3 3" />
-        <line x1="240" y1="180" x2="308" y2="248" stroke="rgba(245,180,0,0.25)" strokeWidth="1" strokeDasharray="3 3" />
-        <line x1="240" y1="180" x2="210" y2="242" stroke="rgba(245,180,0,0.25)" strokeWidth="1" strokeDasharray="3 3" />
-        <line x1="210" y1="242" x2="128" y2="340" stroke="rgba(0,155,77,0.25)" strokeWidth="1" strokeDasharray="3 3" />
-        <line x1="210" y1="242" x2="225" y2="318" stroke="rgba(0,155,77,0.25)" strokeWidth="1" strokeDasharray="3 3" />
+        {/* NETWORK CONNECTIONS */}
+        <line x1="265" y1="170" x2="378" y2="275" stroke="rgba(245,180,0,0.2)" strokeWidth="1.5" strokeDasharray="5 5" />
+        <line x1="265" y1="170" x2="170" y2="400" stroke="rgba(0,155,77,0.18)" strokeWidth="1.5" strokeDasharray="5 5" />
+        <line x1="265" y1="170" x2="245" y2="305" stroke="rgba(6,110,230,0.18)" strokeWidth="1.5" strokeDasharray="5 5" />
 
-        <circle cx="240" cy="180" r="30" fill="none" stroke="rgba(245,180,0,0.3)" strokeWidth="1">
-          <animate attributeName="r" values="10;35;10" dur="2.5s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite" />
+        {/* PULSE FROM JOHANNESBURG */}
+        <circle cx="265" cy="170" r="20" fill="none" stroke="rgba(245,180,0,0.4)" strokeWidth="1">
+          <animate attributeName="r" values="8;45;8" dur="3s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite" />
         </circle>
       </svg>
+
+      {/* LEGEND */}
+      <div className="mt-6 space-y-3 text-center font-inter">
+        <p className="text-white font-bold text-sm">South Africa - 9 Provinces</p>
+        <div className="grid grid-cols-3 gap-2 text-xs text-blue-200">
+          <div>🟡 Western Cape</div>
+          <div>🟠 Northern Cape</div>
+          <div>🟣 Free State</div>
+          <div>🔵 Eastern Cape</div>
+          <div>🟢 KwaZulu-Natal</div>
+          <div>🔵 Mpumalanga</div>
+          <div>🔴 Limpopo</div>
+          <div>🔴 Gauteng</div>
+          <div>🟢 North West</div>
+        </div>
+        <p className="text-blue-300 text-xs pt-2">All 9 provinces with major cities</p>
+      </div>
     </div>
   );
 }

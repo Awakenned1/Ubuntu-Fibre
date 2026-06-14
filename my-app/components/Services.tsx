@@ -1,38 +1,41 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Network, TrendingUp, Headphones } from "lucide-react";
+import { Network, TrendingUp, Headphones, CheckCircle2 } from "lucide-react";
 
 const services = [
   {
     icon: Network,
-    title: "Fibre Optic Network Installation",
-    subtitle: "For Businesses",
-    description:
-      "We deliver end-to-end fibre optic network installation for businesses seeking reliable, high-speed connectivity. With deep expertise working alongside Openserve, we handle everything from site assessment through to full deployment — with minimal disruption to your operations.",
-    color: "#0A2E63",
-    accent: "#F5B400",
+    tag: "For Businesses",
+    title: "Fibre Network\nInstallation",
+    tagline: "End-to-end fibre deployment — from site assessment to full go-live.",
     features: ["Site Assessment", "Seamless Deployment", "Openserve Expertise", "Minimal Downtime"],
+    gradient: "from-[#0A2E63] to-[#1a4a8a]",
+    accent: "#F5B400",
+    iconBg: "bg-yellow-400/10 border-yellow-400/20",
+    iconColor: "#F5B400",
   },
   {
     icon: TrendingUp,
-    title: "Sales & Marketing Solutions",
-    subtitle: "For ISPs",
-    description:
-      "Elevate your ISP's market presence and drive subscriber growth with our tailored Sales and Marketing Solutions. Our comprehensive approach covers strategic planning, targeted campaigns, and impactful branding to help Internet Service Providers expand their reach.",
-    color: "#009B4D",
-    accent: "#009B4D",
+    tag: "For ISPs",
+    title: "Sales & Marketing\nSolutions",
+    tagline: "Grow your subscriber base with targeted campaigns and strategic branding.",
     features: ["Strategic Planning", "Targeted Campaigns", "Brand Development", "Market Expansion"],
+    gradient: "from-[#006B35] to-[#009B4D]",
+    accent: "#4ade80",
+    iconBg: "bg-green-400/10 border-green-400/20",
+    iconColor: "#4ade80",
   },
   {
     icon: Headphones,
-    title: "Contact Centre Campaign Management",
-    subtitle: "Operations & Customer Engagement",
-    description:
-      "Streamline your contact centre operations and enhance customer engagement with our result-driven campaign management service. We specialise in designing and executing outbound telemarketing and inbound customer support initiatives that improve productivity and satisfaction.",
-    color: "#E31E24",
-    accent: "#E31E24",
+    tag: "Operations & CX",
+    title: "Contact Centre\nManagement",
+    tagline: "Result-driven inbound & outbound campaigns that boost productivity.",
     features: ["Outbound Telemarketing", "Inbound Support", "Campaign Design", "Productivity Optimisation"],
+    gradient: "from-[#8B0000] to-[#E31E24]",
+    accent: "#fca5a5",
+    iconBg: "bg-red-400/10 border-red-400/20",
+    iconColor: "#fca5a5",
   },
 ];
 
@@ -42,14 +45,15 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 lg:py-28 bg-white">
+    <section id="services" className="py-20 lg:py-28 bg-[#f8f9fb]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <motion.div
           className="text-center mb-14"
@@ -58,87 +62,73 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-1.5 bg-ubuntu-blue/8 text-ubuntu-blue text-xs font-bold uppercase tracking-widest rounded-full mb-4 font-poppins">
+          <span className="inline-block px-4 py-1.5 bg-[#07153D]/8 text-[#07153D] text-xs font-bold uppercase tracking-widest rounded-full mb-4">
             What We Offer
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-ubuntu-blue mb-4 font-poppins">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#07153D] mb-3">
             Our Services
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-base lg:text-lg font-inter leading-relaxed">
-            Specialised telecommunications services built for businesses and
-            Internet Service Providers — delivering connectivity, growth, and
-            operational excellence.
+          <p className="text-slate-400 text-base max-w-lg mx-auto">
+            Telecoms solutions built for businesses and ISPs across South Africa.
           </p>
         </motion.div>
 
-        {/* Cards grid — 3 large cards */}
+        {/* Cards */}
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {services.map((service) => (
+          {services.map((s) => (
             <motion.div
-              key={service.title}
+              key={s.title}
               variants={cardVariants}
-              className="group relative bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-ubuntu-blue/10 transition-all duration-300 hover:-translate-y-2 cursor-default"
+              className="group rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-default flex flex-col"
             >
-              {/* Top colour bar */}
-              <div className="h-1.5 w-full" style={{ backgroundColor: service.accent }} />
+              {/* Coloured top panel */}
+              <div className={`bg-gradient-to-br ${s.gradient} px-8 pt-10 pb-12 relative overflow-hidden`}>
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute -right-8 -top-8 w-40 h-40 rounded-full border-[40px] border-white" />
+                  <div className="absolute -right-4 bottom-4 w-24 h-24 rounded-full border-[20px] border-white" />
+                </div>
 
-              <div className="p-7 sm:p-8">
+                {/* Tag */}
+                <span
+                  className="inline-block text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6 border"
+                  style={{ color: s.accent, borderColor: `${s.accent}40`, backgroundColor: `${s.accent}15` }}
+                >
+                  {s.tag}
+                </span>
+
                 {/* Icon */}
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    backgroundColor: `${service.accent}15`,
-                    border: `1.5px solid ${service.accent}30`,
-                  }}
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border ${s.iconBg}`}
                 >
-                  <service.icon size={26} style={{ color: service.accent }} />
+                  <s.icon size={30} style={{ color: s.iconColor }} />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-black text-dark-text mb-1 font-poppins group-hover:text-ubuntu-blue transition-colors duration-300">
-                  {service.title}
+                <h3 className="text-2xl font-black text-white leading-tight whitespace-pre-line">
+                  {s.title}
                 </h3>
-                <p
-                  className="text-xs font-bold uppercase tracking-wider mb-4 font-inter"
-                  style={{ color: service.accent }}
-                >
-                  {service.subtitle}
-                </p>
-
-                {/* Description */}
-                <p className="text-gray-500 text-sm leading-relaxed font-inter mb-6">
-                  {service.description}
-                </p>
-
-                {/* Feature pills */}
-                <div className="flex flex-wrap gap-2">
-                  {service.features.map((f) => (
-                    <span
-                      key={f}
-                      className="text-xs font-medium px-2.5 py-1 rounded-lg font-inter"
-                      style={{
-                        backgroundColor: `${service.accent}12`,
-                        color: service.accent,
-                        border: `1px solid ${service.accent}25`,
-                      }}
-                    >
-                      {f}
-                    </span>
-                  ))}
-                </div>
               </div>
 
-              {/* Hover background accent */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: `linear-gradient(135deg, ${service.accent}04 0%, transparent 60%)` }}
-              />
+              {/* White bottom panel */}
+              <div className="bg-white px-8 py-6 flex flex-col gap-5 flex-1">
+                <p className="text-slate-500 text-sm leading-relaxed">{s.tagline}</p>
+
+                <ul className="flex flex-col gap-2.5">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
+                      <CheckCircle2 size={15} className="shrink-0" style={{ color: s.iconColor === "#fca5a5" ? "#E31E24" : s.iconColor === "#4ade80" ? "#009B4D" : "#F5B400" }} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -153,7 +143,7 @@ export default function Services() {
         >
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 bg-ubuntu-blue text-white font-bold rounded-xl hover:bg-ubuntu-sec transition-colors duration-200 shadow-lg shadow-ubuntu-blue/25 font-poppins text-sm"
+            className="px-8 py-3.5 bg-[#07153D] text-white font-bold rounded-xl hover:bg-[#0e2460] transition-colors duration-200 shadow-lg shadow-[#07153D]/25 text-sm"
           >
             Enquire About Our Services
           </button>
