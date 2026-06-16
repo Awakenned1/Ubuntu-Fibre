@@ -37,7 +37,9 @@ export default function Hero() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#07153D]/75 via-[#07153D]/30 to-transparent" />
+          {/* Subtle dark vignette — image is already dark */}
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
 
         {/* Hero content — takes remaining space above partners */}
@@ -49,27 +51,27 @@ export default function Hero() {
             className="flex flex-col items-center text-center"
           >
 
-            {/* Logo icon + brand name — frosted pill for visibility */}
-            <motion.div variants={item} className="mb-4">
-              <div className="inline-flex items-center gap-4 bg-white/60 backdrop-blur-md rounded-2xl px-6 py-4 shadow-sm">
+            {/* Logo — dark frosted glass pill */}
+            <motion.div variants={item} className="mb-6">
+              <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-lg">
                 <Image
                   src="/ubuntulogo.png"
-                  alt="Ubuntu Fibre icon"
-                  width={70}
-                  height={70}
+                  alt="Ubuntu Fibre"
+                  width={56}
+                  height={56}
                   priority
-                  className="w-14 h-14 sm:w-16 sm:h-16"
+                  className="w-12 h-12"
                 />
                 <div className="text-left">
-                  <div className="text-5xl sm:text-6xl font-black leading-none tracking-tight">
-                    <span style={{ color: "#2D3D9D" }}>U</span>
-                    <span style={{ color: "#F0B11D" }}>B</span>
-                    <span style={{ color: "#111111" }}>U</span>
+                  <div className="text-4xl sm:text-5xl font-black leading-none tracking-tight">
+                    <span style={{ color: "#5B8FFF" }}>U</span>
+                    <span style={{ color: "#F5B400" }}>B</span>
+                    <span style={{ color: "#ffffff" }}>U</span>
                     <span style={{ color: "#22A652" }}>N</span>
-                    <span style={{ color: "#F1333A" }}>T</span>
-                    <span style={{ color: "#2D3D9D" }}>U</span>
+                    <span style={{ color: "#FF6B6B" }}>T</span>
+                    <span style={{ color: "#5B8FFF" }}>U</span>
                   </div>
-                  <p className="uppercase tracking-[0.28em] text-[10px] text-slate-600 font-bold mt-1">
+                  <p className="uppercase tracking-[0.28em] text-[10px] text-white/60 font-bold mt-1">
                     Fibre Telecommunications
                   </p>
                 </div>
@@ -79,49 +81,66 @@ export default function Hero() {
             {/* Divider */}
             <motion.div
               variants={item}
-              className="w-14 h-[3px] rounded-full bg-gradient-to-r from-[#2D3D9D] via-[#22A652] to-[#F1333A] mb-6"
+              className="w-14 h-[3px] rounded-full bg-gradient-to-r from-[#5B8FFF] via-[#22A652] to-[#F5B400] mb-6"
             />
 
-            {/* Slogan — strong shadow for legibility over vivid bg */}
+            {/* Headline */}
             <motion.h1
               variants={item}
-              className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#07153D] leading-snug mb-8 whitespace-nowrap [text-shadow:0_1px_12px_rgba(255,255,255,0.9),0_2px_4px_rgba(255,255,255,0.8)]"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-3"
             >
               Working Together{" "}
-              <span className="text-[#1565FF]">To Get Connected</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B400] to-[#FFD04D]">
+                To Get Connected
+              </span>
             </motion.h1>
 
-            {/* CTA */}
-            <motion.div variants={item}>
+            {/* Subtitle */}
+            <motion.p variants={item} className="text-white/60 text-base sm:text-lg mb-8 max-w-lg">
+              Fast, reliable fibre across South Africa — for homes and businesses.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div variants={item} className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="group flex items-center gap-3 px-9 py-4 rounded-full bg-[#E1262C] hover:bg-[#C91E24] text-white text-base font-bold shadow-lg shadow-red-400/25 transition-all hover:scale-105"
+                className="group flex items-center gap-3 px-8 py-4 rounded-full bg-[#F5B400] hover:bg-[#e0a500] text-[#07153D] text-base font-black shadow-xl shadow-yellow-500/30 transition-all hover:scale-105"
               >
                 Get Connected Today
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={() => document.querySelector("#plans")?.scrollIntoView({ behavior: "smooth" })}
+                className="flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white text-base font-semibold hover:bg-white/10 transition-all"
+              >
+                View Plans
               </button>
             </motion.div>
 
           </motion.div>
         </div>
 
-        {/* ── PARTNERS — solid white strip ── */}
-        <div className="relative z-10 w-full bg-white py-8 px-6">
-          <p className="text-center uppercase tracking-[6px] text-slate-400 text-xs font-bold mb-6">
+        {/* ── PARTNERS — scrolling marquee ── */}
+        <div className="relative z-10 w-full bg-white py-7 border-t border-slate-100 overflow-hidden">
+          <p className="text-center uppercase tracking-[6px] text-slate-400 text-[10px] font-bold mb-5">
             Trusted Technology Partners
           </p>
-          <div className="max-w-4xl mx-auto flex justify-center items-center gap-14 flex-wrap">
-            {partners.map((p) => (
-              <div key={p.name} className="opacity-70 hover:opacity-100 transition-opacity">
-                <Image
-                  src={p.logo}
-                  alt={p.name}
-                  width={200}
-                  height={72}
-                  className="object-contain h-16 w-auto"
-                />
-              </div>
-            ))}
+
+          {/* Marquee track */}
+          <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="flex gap-16 items-center animate-marquee whitespace-nowrap">
+              {[...partners, ...partners, ...partners].map((p, i) => (
+                <div key={`${p.name}-${i}`} className="opacity-80 hover:opacity-100 transition-opacity shrink-0">
+                  <Image
+                    src={p.logo}
+                    alt={p.name}
+                    width={200}
+                    height={72}
+                    className="object-contain h-14 w-auto"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
