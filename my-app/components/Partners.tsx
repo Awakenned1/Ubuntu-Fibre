@@ -36,7 +36,7 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section id="partners" className="py-20 lg:py-28 bg-light-gray">
+    <section id="partners" className="py-10 sm:py-14 lg:py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -49,7 +49,7 @@ export default function Partners() {
           <span className="inline-block px-4 py-1.5 bg-ubuntu-blue/8 text-ubuntu-blue text-xs font-bold uppercase tracking-widest rounded-full mb-4 font-poppins">
             Partnerships
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-ubuntu-blue mb-4 font-poppins">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-ubuntu-blue mb-3 font-poppins">
             Our Strategic Partners
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-base font-inter leading-relaxed">
@@ -75,7 +75,7 @@ export default function Partners() {
                 style={{ backgroundColor: partner.accent }}
               />
 
-              <div className="p-8">
+              <div className="p-5 sm:p-8">
                 {/* Logo */}
                 <div className="mb-6 flex items-center justify-center h-20 bg-gray-50 rounded-xl border border-gray-100 overflow-hidden px-6">
                   <div className="relative w-full h-full flex items-center justify-center">

@@ -81,7 +81,7 @@ export default function Footer() {
       <div className="absolute inset-0 network-dots opacity-20" />
 
       {/* Top section */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8 sm:pt-12 sm:pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Column 1: Brand */}
@@ -120,7 +120,7 @@ export default function Footer() {
 
           {/* Column 2: Services */}
           <div>
-            <h4 className="text-white font-black text-sm uppercase tracking-wider mb-5 font-poppins">
+            <h4 className="text-slate-800 font-black text-sm uppercase tracking-wider mb-5 font-poppins">
               Services
             </h4>
             <ul className="space-y-3">
@@ -128,7 +128,7 @@ export default function Footer() {
                 <li key={link}>
                   <button
                     onClick={() => handleNav("#services")}
-                    className="text-slate-700 hover:text-ubuntu-blue transition-colors text-sm font-inter hover:translate-x-1 inline-block transition-transform"
+                    className="text-slate-600 hover:text-ubuntu-blue transition-colors text-sm font-inter hover:translate-x-1 inline-block transition-transform"
                   >
                     {link}
                   </button>
@@ -139,7 +139,7 @@ export default function Footer() {
 
           {/* Column 3: Quick Links */}
           <div>
-            <h4 className="text-white font-black text-sm uppercase tracking-wider mb-5 font-poppins">
+            <h4 className="text-slate-800 font-black text-sm uppercase tracking-wider mb-5 font-poppins">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -147,7 +147,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <button
                     onClick={() => handleNav(link.href)}
-                    className="text-blue-200 hover:text-ubuntu-yellow transition-colors text-sm font-inter"
+                    className="text-slate-600 hover:text-ubuntu-blue transition-colors text-sm font-inter"
                   >
                     {link.label}
                   </button>
@@ -158,7 +158,7 @@ export default function Footer() {
 
           {/* Column 4: Social + Legal */}
           <div>
-            <h4 className="text-white font-black text-sm uppercase tracking-wider mb-5 font-poppins">
+            <h4 className="text-slate-800 font-black text-sm uppercase tracking-wider mb-5 font-poppins">
               Follow Us
             </h4>
             <div className="flex flex-wrap gap-2.5 mb-7">
@@ -167,7 +167,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-blue-200 hover:text-white hover:bg-ubuntu-yellow hover:border-ubuntu-yellow transition-all duration-200"
+                  className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-white hover:bg-ubuntu-blue hover:border-ubuntu-blue transition-all duration-200"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   target="_blank"
@@ -179,13 +179,13 @@ export default function Footer() {
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider font-poppins">
+              <h4 className="text-slate-800 font-bold text-xs uppercase tracking-wider font-poppins">
                 Legal
               </h4>
               {["Privacy Policy", "Terms of Service", "POPIA Compliance", "ICASA Accredited"].map((item) => (
                 <button
                   key={item}
-                  className="block text-blue-300 hover:text-ubuntu-yellow transition-colors text-xs font-inter"
+                  className="block text-slate-500 hover:text-ubuntu-blue transition-colors text-xs font-inter"
                 >
                   {item}
                 </button>

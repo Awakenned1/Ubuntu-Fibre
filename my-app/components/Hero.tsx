@@ -25,23 +25,23 @@ export default function Hero() {
   return (
     <section id="home" className="relative flex flex-col overflow-hidden">
 
-      {/* ── FULL VIEWPORT: hero + partners together ── */}
-      <div className="relative min-h-screen flex flex-col">
+      {/* ── HERO ── */}
+      <div className="relative flex flex-col min-h-[100dvh] md:min-h-screen">
 
-        {/* Background with dark transparency overlay */}
+        {/* Background */}
         <div className="absolute inset-0">
           <Image
             src="/hero-bg.jpg"
             alt=""
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-[center_65%]"
           />
           <div className="absolute inset-0 bg-black/55" />
         </div>
 
-        {/* Hero content — takes remaining space above partners */}
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-10">
+        {/* Hero content */}
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 pt-20 sm:pt-24 pb-8">
           <motion.div
             variants={container}
             initial="hidden"
@@ -50,18 +50,18 @@ export default function Hero() {
           >
 
             {/* Logo — dark frosted glass pill */}
-            <motion.div variants={item} className="mb-6">
-              <div className="inline-flex items-center gap-4 bg-white/90 backdrop-blur-md border border-white/30 rounded-2xl px-6 py-4 shadow-lg">
+            <motion.div variants={item} className="mb-4">
+              <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-md border border-white/30 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 shadow-lg">
                 <Image
                   src="/ubuntulogo.png"
                   alt="Ubuntu Fibre"
-                  width={56}
-                  height={56}
+                  width={48}
+                  height={48}
                   priority
-                  className="w-12 h-12"
+                  className="w-10 h-10 sm:w-12 sm:h-12"
                 />
                 <div className="text-left">
-                  <div className="text-4xl sm:text-5xl font-black leading-none tracking-tight">
+                  <div className="text-3xl sm:text-4xl font-black leading-none tracking-tight">
                     <span style={{ color: "#2D3D9D" }}>U</span>
                     <span style={{ color: "#F0B11D" }}>B</span>
                     <span style={{ color: "#111111" }}>U</span>
@@ -79,13 +79,13 @@ export default function Hero() {
             {/* Divider */}
             <motion.div
               variants={item}
-              className="w-14 h-[3px] rounded-full bg-gradient-to-r from-[#5B8FFF] via-[#22A652] to-[#F5B400] mb-6"
+              className="w-14 h-[3px] rounded-full bg-gradient-to-r from-[#5B8FFF] via-[#22A652] to-[#F5B400] mb-4"
             />
 
             {/* Headline */}
             <motion.h1
               variants={item}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-3"
+              className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-3 px-2"
             >
               Working Together{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B400] to-[#FFD04D]">
@@ -94,7 +94,7 @@ export default function Hero() {
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p variants={item} className="text-white/60 text-base sm:text-lg mb-8 max-w-lg">
+            <motion.p variants={item} className="text-white/60 text-sm sm:text-base mb-6 max-w-sm sm:max-w-lg px-2">
               Fast, reliable fibre across South Africa — for homes and businesses.
             </motion.p>
 
@@ -113,22 +113,22 @@ export default function Hero() {
         </div>
 
         {/* ── PARTNERS — scrolling marquee ── */}
-        <div className="relative z-10 w-full bg-white py-7 border-t border-slate-100 overflow-hidden">
-          <p className="text-center uppercase tracking-[6px] text-slate-400 text-[10px] font-bold mb-5">
+        <div className="relative z-10 w-full bg-white py-5 border-t border-slate-100 overflow-hidden">
+          <p className="text-center uppercase tracking-[6px] text-slate-400 text-[10px] font-bold mb-4">
             Trusted Technology Partners
           </p>
 
           {/* Marquee track */}
           <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-            <div className="flex gap-16 items-center animate-marquee whitespace-nowrap">
+            <div className="flex gap-10 sm:gap-16 items-center animate-marquee whitespace-nowrap">
               {[...partners, ...partners, ...partners].map((p, i) => (
                 <div key={`${p.name}-${i}`} className="opacity-80 hover:opacity-100 transition-opacity shrink-0">
                   <Image
                     src={p.logo}
                     alt={p.name}
-                    width={200}
-                    height={72}
-                    className="object-contain h-14 w-auto"
+                    width={160}
+                    height={56}
+                    className="object-contain h-10 sm:h-14 w-auto"
                   />
                 </div>
               ))}

@@ -41,8 +41,8 @@ const features = [
 export default function WhyChoose() {
   return (
     <section id="why-choose" className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-stretch">
 
           {/* ── LEFT: Photo panel ── */}
           <motion.div
@@ -50,7 +50,7 @@ export default function WhyChoose() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden min-h-[340px] lg:min-h-[440px] order-2 lg:order-1"
+            className="relative rounded-2xl overflow-hidden min-h-[260px] sm:min-h-[320px] lg:min-h-[440px] order-2 lg:order-1"
           >
             <Image
               src="/about .png"
@@ -86,13 +86,13 @@ export default function WhyChoose() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="rounded-2xl bg-[#07153D] px-7 py-8 flex flex-col justify-center order-1 lg:order-2"
+            className="rounded-2xl bg-[#07153D] px-5 py-6 sm:px-7 sm:py-8 flex flex-col justify-center order-1 lg:order-2"
           >
             <span className="inline-block px-3 py-1 bg-white/10 border border-white/15 text-white/70 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 w-fit">
               About Us
             </span>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-2 leading-tight">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-white mb-2 leading-tight">
               Why Choose <span className="text-[#F5B400]">Ubuntu Fibre?</span>
             </h2>
 

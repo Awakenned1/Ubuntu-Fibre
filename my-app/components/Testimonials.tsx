@@ -46,7 +46,7 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section className="py-10 sm:py-14 lg:py-20 bg-white relative overflow-hidden">
       {/* Decorative background */}
       <div
         className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-5 -translate-y-1/2 translate-x-1/2"
@@ -60,7 +60,7 @@ export default function Testimonials() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -69,7 +69,7 @@ export default function Testimonials() {
           <span className="inline-block px-4 py-1.5 bg-ubuntu-blue/8 text-ubuntu-blue text-xs font-bold uppercase tracking-widest rounded-full mb-4 font-poppins">
             Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-ubuntu-blue mb-4 font-poppins">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-ubuntu-blue mb-3 font-poppins">
             What Our Clients Say
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base font-inter leading-relaxed">

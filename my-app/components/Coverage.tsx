@@ -66,11 +66,11 @@ export default function Coverage() {
   };
 
   return (
-    <section id="coverage" className="py-16 lg:py-24 hero-gradient relative overflow-hidden">
+    <section id="coverage" className="py-10 sm:py-14 lg:py-20 hero-gradient relative overflow-hidden">
       <div className="absolute inset-0 network-dots opacity-40" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
           {/* LEFT: Accurate SA province map */}
           <motion.div

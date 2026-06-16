@@ -116,7 +116,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-light-gray">
+    <section id="contact" className="py-10 sm:py-14 lg:py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -129,7 +129,7 @@ export default function Contact() {
           <span className="inline-block px-4 py-1.5 bg-ubuntu-blue/8 text-ubuntu-blue text-xs font-bold uppercase tracking-widest rounded-full mb-4 font-poppins">
             Get In Touch
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-ubuntu-blue mb-4 font-poppins">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-ubuntu-blue mb-3 font-poppins">
             Contact Us
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base font-inter leading-relaxed">
@@ -211,7 +211,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-7 lg:p-8">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-7 lg:p-8">
               <h3 className="text-xl font-black text-ubuntu-blue mb-6 font-poppins">
                 Request a Connection
               </h3>
