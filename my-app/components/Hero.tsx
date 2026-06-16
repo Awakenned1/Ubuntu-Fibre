@@ -37,9 +37,7 @@ export default function Hero() {
             priority
             className="object-cover object-center"
           />
-          {/* Subtle dark vignette — image is already dark */}
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-black/55" />
         </div>
 
         {/* Hero content — takes remaining space above partners */}
@@ -53,7 +51,7 @@ export default function Hero() {
 
             {/* Logo — dark frosted glass pill */}
             <motion.div variants={item} className="mb-6">
-              <div className="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-lg">
+              <div className="inline-flex items-center gap-4 bg-white/90 backdrop-blur-md border border-white/30 rounded-2xl px-6 py-4 shadow-lg">
                 <Image
                   src="/ubuntulogo.png"
                   alt="Ubuntu Fibre"
@@ -64,14 +62,14 @@ export default function Hero() {
                 />
                 <div className="text-left">
                   <div className="text-4xl sm:text-5xl font-black leading-none tracking-tight">
-                    <span style={{ color: "#5B8FFF" }}>U</span>
-                    <span style={{ color: "#F5B400" }}>B</span>
-                    <span style={{ color: "#ffffff" }}>U</span>
+                    <span style={{ color: "#2D3D9D" }}>U</span>
+                    <span style={{ color: "#F0B11D" }}>B</span>
+                    <span style={{ color: "#111111" }}>U</span>
                     <span style={{ color: "#22A652" }}>N</span>
-                    <span style={{ color: "#FF6B6B" }}>T</span>
-                    <span style={{ color: "#5B8FFF" }}>U</span>
+                    <span style={{ color: "#F1333A" }}>T</span>
+                    <span style={{ color: "#2D3D9D" }}>U</span>
                   </div>
-                  <p className="uppercase tracking-[0.28em] text-[10px] text-white/60 font-bold mt-1">
+                  <p className="uppercase tracking-[0.28em] text-[10px] text-slate-500 font-bold mt-1">
                     Fibre Telecommunications
                   </p>
                 </div>
@@ -100,20 +98,14 @@ export default function Hero() {
               Fast, reliable fibre across South Africa — for homes and businesses.
             </motion.p>
 
-            {/* CTAs */}
-            <motion.div variants={item} className="flex flex-wrap gap-4 justify-center">
+            {/* CTA */}
+            <motion.div variants={item}>
               <button
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="group flex items-center gap-3 px-8 py-4 rounded-full bg-[#F5B400] hover:bg-[#e0a500] text-[#07153D] text-base font-black shadow-xl shadow-yellow-500/30 transition-all hover:scale-105"
               >
                 Get Connected Today
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={() => document.querySelector("#plans")?.scrollIntoView({ behavior: "smooth" })}
-                className="flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white text-base font-semibold hover:bg-white/10 transition-all"
-              >
-                View Plans
               </button>
             </motion.div>
 
